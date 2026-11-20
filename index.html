@@ -117,6 +117,17 @@ footer details p{font-size:13px;margin:8px 0 0;line-height:1.55}
   .cta{width:auto}
   .two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 }
+
+/* simplification */
+.sub{max-width:none;font-size:17px;margin-top:10px}
+.sound{left:auto;right:12px;bottom:auto;top:19%;transform:none;padding:8px 12px;font-size:13px}
+.price b{font-size:34px}
+.trust{margin:12px 0 0;font-size:13.5px;white-space:nowrap;font-weight:600;color:var(--muted);text-align:center}
+.steps{grid-template-columns:repeat(3,1fr);gap:8px}
+.steps li{flex-direction:column;align-items:center;text-align:center;padding:14px 8px;font-size:15px;gap:8px}
+section{padding-top:34px}
+h2{font-size:24px;margin-bottom:14px}
+@media (max-width:859px){.buy{display:none}.buyblock{order:3}.trust{margin-top:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -124,7 +135,7 @@ footer details p{font-size:13px;margin:8px 0 0;line-height:1.55}
 <header>
   <div class="wrap">
     <a class="logo" href="/">Wahou<span>.</span> Cadeaux</a>
-    <span class="secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Paiement sécurisé</span>
+    <span class="secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Sécurisé</span>
   </div>
 </header>
 
@@ -132,76 +143,54 @@ footer details p{font-size:13px;margin:8px 0 0;line-height:1.55}
   <div class="hero">
     <div class="txt">
       <h1>Fais passer ton mec <em>aux infos.</em></h1>
-      <p class="sub">Une vidéo façon JT de 45 secondes, avec son prénom et sa photo : il est porté disparu depuis la sortie de GTA 6.</p>
-      <p class="for">Marche aussi pour ton pote, ton frère, ton fils…</p>
-    </div>
-
-    <div class="buyblock">
-      <div class="buy" id="acheter">
-        <div class="price"><b>6,90 €</b><span>paiement unique, aucun abonnement</span></div>
-        <a class="cta" href="https://buy.stripe.com/fZu8wR7VU9bE4Du0CVaZi00?locale=fr">Créer sa vidéo</a>
-        <p class="after">Après le paiement, tu ajoutes sa photo (30 secondes).</p>
-        <div class="pay">Paiement sécurisé par Stripe <i>CB</i><i>Visa</i><i>Mastercard</i><i>Apple Pay</i><i>Google Pay</i></div>
-      </div>
-
-      <ul class="points">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reçue par mail en moins de 2 h (de 9 h à 23 h)</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Une erreur ? On la refait gratuitement</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Son vrai visage, son prénom dit à voix haute : pas un template</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>À envoyer sur WhatsApp, Snap, Insta…</li>
-      </ul>
+      <p class="sub">Son prénom, sa photo, 45 secondes de JT.</p>
     </div>
 
     <div class="phone">
       <video id="demo" src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4" poster="https://dynamic.heygen.ai/aws_pacific/avatar_tmp/db4f235e8625419c8eb6637a30be14c3/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/238e6c96c4e94486b8a62d199aa4225f.jpeg" playsinline muted autoplay loop preload="metadata" aria-label="Exemple : la vidéo Flash Info d'Enzo"></video>
-      <button class="sound" id="sound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><span>Écouter l'exemple</span></button>
+      <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="Activer le son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path id="wave" d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><span>Son</span></button>
+    </div>
+
+    <div class="buyblock">
+      <div class="buy">
+        <div class="price"><b>6,90 €</b></div>
+        <a class="cta" href="https://buy.stripe.com/fZu8wR7VU9bE4Du0CVaZi00?locale=fr">Créer sa vidéo</a>
+      </div>
+      <p class="trust">🔒 Sécurisé · ⚡ Reçue en 2 h · ↺ Refaite si erreur</p>
     </div>
   </div>
 
   <section aria-labelledby="dedans">
-    <h2 id="dedans">Ce qu'il y a dans sa vidéo</h2>
-    <p class="lead">Exemple réel, fait pour Enzo.</p>
+    <h2 id="dedans">Dans sa vidéo</h2>
     <div class="shots">
-      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=14" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>Son avis de recherche</figcaption></figure>
-      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=32" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>Le faux témoin</figcaption></figure>
-      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=44" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>L'affiche RECHERCHÉ</figcaption></figure>
+      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=14" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>Avis de recherche</figcaption></figure>
+      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=32" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>Faux témoin</figcaption></figure>
+      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=44" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>Affiche RECHERCHÉ</figcaption></figure>
     </div>
   </section>
 
-  <div class="two">
-    <section aria-labelledby="comment">
-      <h2 id="comment">Comment ça marche</h2>
-      <ol class="steps">
-        <li><div><b>Tu paies 6,90 €</b><span>Tu indiques son prénom et son âge.</span></div></li>
-        <li><div><b>Tu envoies sa photo</b><span>Et une anecdote si tu veux (« il a raté le repas de famille »).</span></div></li>
-        <li><div><b>Tu reçois sa vidéo par mail</b><span>En moins de 2 h (commandes de 9 h à 23 h, sinon le lendemain matin). Tu n'as plus qu'à lui envoyer.</span></div></li>
-      </ol>
-    </section>
-
-    <section aria-labelledby="engage">
-      <h2 id="engage">Notre promesse</h2>
-      <div class="promise">
-        <p><strong>Prénom mal écrit ou photo mal placée ?</strong> On refait la vidéo gratuitement.</p>
-        <p><strong>Sa photo est supprimée</strong> dès que la vidéo est livrée.</p>
-        <p><strong>Une question ?</strong> Écris-nous sur Instagram <a href="https://www.instagram.com/wahoucadeaux/">@wahoucadeaux</a>, on répond vite.</p>
-      </div>
-    </section>
-  </div>
+  <section aria-labelledby="comment">
+    <h2 id="comment">Comment ça marche</h2>
+    <ol class="steps">
+      <li><b>Tu paies</b></li>
+      <li><b>Tu envoies sa photo</b></li>
+      <li><b>Tu reçois sa vidéo</b></li>
+    </ol>
+  </section>
 
   <section aria-labelledby="faq">
     <h2 id="faq">Questions</h2>
-    <details class="q"><summary>Je reçois quoi exactement ?</summary><p>Un fichier vidéo vertical (MP4) d'environ 45 secondes : une présentatrice annonce sa disparition, son avis de recherche, un faux témoin et l'affiche RECHERCHÉ, avec son prénom, son âge et sa photo.</p></details>
-    <details class="q"><summary>Le paiement est sécurisé ?</summary><p>Oui. Le paiement se fait sur la page Stripe, le prestataire utilisé par des millions de sites. Nous ne voyons jamais tes informations de carte.</p></details>
-    <details class="q"><summary>Et si je ne reçois rien ?</summary><p>Vérifie tes spams, puis écris-nous sur Instagram @wahoucadeaux avec ton prénom : on te renvoie le lien tout de suite.</p></details>
-    <details class="q"><summary>C'est pour un pote, ça marche aussi ?</summary><p>Bien sûr : pote, frère, fils, coloc, collègue… Tu choisis qui l'envoie au moment de commander.</p></details>
-    <details class="q"><summary>Quelle photo envoyer ?</summary><p>Une photo de face où on voit bien son visage et ses épaules. Une photo de profil WhatsApp ou Insta suffit souvent.</p></details>
-    <details class="q"><summary>Comment la vidéo est fabriquée ?</summary><p>La présentatrice et le témoin sont générés par intelligence artificielle, puis on monte sa vidéo avec sa photo et son prénom. La photo sert uniquement à ça et elle est supprimée après la livraison, jamais publiée.</p></details>
+    <details class="q"><summary>C'est pour un pote, ça marche ?</summary><p>Oui : pote, frère, fils, coloc… Tu choisis au moment de commander.</p></details>
+    <details class="q"><summary>Quelle photo envoyer ?</summary><p>Une photo de face. Sa photo de profil WhatsApp ou Insta suffit.</p></details>
+    <details class="q"><summary>Le paiement est sécurisé ?</summary><p>Oui, il passe par Stripe. Paiement unique, aucun abonnement. On ne voit jamais ta carte.</p></details>
+    <details class="q"><summary>Et sa photo, elle devient quoi ?</summary><p>Elle sert seulement à faire sa vidéo (présentatrice et témoin créés par IA), puis elle est supprimée. Jamais publiée.</p></details>
+    <details class="q"><summary>Un souci ?</summary><p>Écris-nous sur Instagram <a href="https://www.instagram.com/wahoucadeaux/">@wahoucadeaux</a>. Erreur de prénom ou de photo : on la refait gratuitement.</p></details>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="row"><strong>Wahou Cadeaux</strong><a href="https://www.instagram.com/wahoucadeaux/">Instagram</a><a href="#cgv">CGV et mentions légales</a></div>
+    <div class="row"><strong>Wahou Cadeaux</strong><a href="https://www.instagram.com/wahoucadeaux/">Instagram</a></div>
     <details id="legal">
       <summary>CGV et mentions légales</summary>
       <p id="cgv"><b>Conditions de vente.</b> Vidéo personnalisée livrée par mail en moins de 2 h après réception des informations pour une commande passée entre 9 h et 23 h, sinon le lendemain avant 11 h. En commandant, tu demandes expressément que la vidéo soit réalisée et fournie immédiatement et tu renonces à ton droit de rétractation (art. L221-28 13° du Code de la consommation). En cas d'erreur de notre part (prénom, photo), la vidéo est refaite gratuitement. Vidéo humoristique (parodie), à usage privé uniquement. Les photos sont supprimées après livraison.</p>
@@ -225,7 +214,7 @@ footer details p{font-size:13px;margin:8px 0 0;line-height:1.55}
     v.muted=!v.muted;
     if(!v.muted){try{v.currentTime=0;v.play();}catch(e){}}
     b.setAttribute('aria-pressed',String(!v.muted));
-    t.textContent=v.muted?"Écouter l'exemple":'Couper le son';
+    t.textContent=v.muted?'Son':'Couper';
   });
 })();
 </script>
