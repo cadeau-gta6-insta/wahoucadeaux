@@ -33,7 +33,7 @@ iframe{width:100%;border:0;min-height:620px;display:block}
 <main class="wrap">
   <span class="ok">✓ Paiement reçu, merci !</span>
   <h1>Dernière étape : <em>sa photo</em></h1>
-  <p class="lead">30 secondes et c'est parti. Une photo de profil WhatsApp ou Insta suffit. Ta vidéo arrive par mail en moins de 24 h.</p>
+  <p class="lead">30 secondes et c'est parti. Une photo de profil WhatsApp ou Insta suffit. Ta vidéo arrive par mail en moins de 2 h (de 9 h à 23 h).</p>
   <div class="card">
     <p class="loading" id="ld">Chargement du formulaire…</p>
     <iframe id="tally" title="Envoyer la photo" loading="eager"></iframe>
@@ -50,7 +50,7 @@ iframe{width:100%;border:0;min-height:620px;display:block}
     if(e.origin!=='https://tally.so')return;
     try{var d=typeof e.data==='string'?JSON.parse(e.data):e.data;
       if(d&&d.event==='Tally.Resize'&&d.payload&&d.payload.height){f.style.height=d.payload.height+'px';}
-      if(d&&d.event==='Tally.FormSubmitted'){document.querySelector('h1').innerHTML="C'est noté ! <em>Surveille tes mails</em>";document.querySelector('.lead').textContent='Ta vidéo arrive en moins de 24 h (pense à vérifier tes spams).';}
+      if(d&&d.event==='Tally.FormSubmitted'){document.querySelector('h1').innerHTML="C'est noté ! <em>Surveille tes mails</em>";document.querySelector('.lead').textContent='Ta vidéo arrive en moins de 2 h (pense à vérifier tes spams).';}
     }catch(err){}
   });
 })();
