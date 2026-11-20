@@ -149,18 +149,18 @@ footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0 18px}
 
 <footer>
   <div class="in">
-    <strong>Wahou Cadeaux</strong> · Enzo DALE EI, Arles
+    <strong>Wahou Cadeaux</strong>
     <nav aria-label="Liens légaux">
       <a href="mailto:contact@wahoucadeaux.fr">Contact</a>
-      <a href="#cgv">CGV</a>
-      <a href="#mentions">Mentions légales</a>
+      <a href="#cgv">CGV et mentions légales</a>
     </nav>
-    <div class="legal">
+    <details class="legal" id="legal">
+      <summary>CGV et mentions légales</summary>
       <h3 id="cgv">Conditions de vente</h3>
       <p>Vidéo personnalisée livrée par mail sous 24 h après réception des informations. En commandant, tu demandes expressément que la vidéo soit réalisée et fournie immédiatement et tu renonces à ton droit de rétractation (art. L221-28 13° du Code de la consommation). En cas d'erreur de notre part (prénom, photo), la vidéo est refaite gratuitement. Vidéo parodique, à usage privé uniquement. Les photos sont supprimées après livraison.</p>
       <h3 id="mentions">Mentions légales</h3>
-      <p>Wahou Cadeaux est édité par Enzo DALE, entrepreneur individuel, Arles (France), SIRET 939 764 486 00014. Contact : contact@wahoucadeaux.fr. TVA non applicable, art. 293 B du CGI. Ce contenu est une parodie et n'est affilié à aucun éditeur de jeu vidéo ni à aucune chaîne de télévision.</p>
-    </div>
+      <p>Wahou Cadeaux est édité par Enzo DALE, entrepreneur individuel, Arles (France), SIRET 939 764 486 00014. Contact : contact@wahoucadeaux.fr. TVA non applicable, art. 293 B du CGI. Ce contenu est une parodie et n'est affilié à aucun éditeur de jeu vidéo ni à aucune chaîne de télévision. Hébergement : GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+    </details>
   </div>
 </footer>
 
@@ -170,6 +170,11 @@ footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0 18px}
 </div>
 
 <script>
+(function(){
+  var lg=document.getElementById('legal');
+  function openLegal(){if(/^#(cgv|mentions)$/.test(location.hash)){lg.open=true;var el=document.querySelector(location.hash);if(el)el.scrollIntoView();}}
+  window.addEventListener('hashchange',openLegal);openLegal();
+})();
 (function(){
   var v=document.getElementById('demo'),b=document.getElementById('sound'),w=document.getElementById('wave'),t=b.querySelector('span');
   b.addEventListener('click',function(){
