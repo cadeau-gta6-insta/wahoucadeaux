@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wahou Cadeaux</title>
+<meta name="description" content="Fais passer ton mec aux infos : une vidéo Flash Info parodique avec son prénom et sa photo. 6,90 €, reçue en moins de 24 h.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1fb; --surface:#ffffff; --ink:#1a0b2e; --muted:#5b4a73; --line:#e3d8ef;
+  --pink:#e0186f; --violet:#7a2bc4; --cyan:#0aa5c2; --yellow:#ffd23d; --on-cta:#1a0b2e;
+  --grad:linear-gradient(100deg,#ff2e88 0%,#8a2bc4 55%,#22d3ee 100%);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#120822; --surface:#1d0f33; --ink:#fbf7ff; --muted:#b9a7d1; --line:#33204f;
+    --pink:#ff2e88; --violet:#a35cf0; --cyan:#22d3ee; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#120822; --surface:#1d0f33; --ink:#fbf7ff; --muted:#b9a7d1; --line:#33204f;
+  --pink:#ff2e88; --violet:#a35cf0; --cyan:#22d3ee; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 17px/1.5 Barlow,system-ui,sans-serif;padding-bottom:96px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+
+.ticker{background:var(--grad);color:#fff;font:400 15px/1 Anton,Impact,sans-serif;letter-spacing:.06em;display:flex;align-items:center;gap:12px;padding:9px 16px;white-space:nowrap;overflow:hidden}
+.ticker b{background:#1a0b2e;color:var(--yellow);padding:5px 8px;font-weight:400}
+.live{display:inline-flex;align-items:center;gap:6px}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+
+.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 0}
+.hero{display:grid;gap:18px}
+.player{position:relative;height:min(50vh,520px);margin:0 auto;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#1a0b2e;box-shadow:0 0 0 3px #fff,0 0 0 7px var(--pink),0 18px 40px rgba(26,11,46,.35)}
+.player video{width:100%;height:100%;object-fit:cover;display:block}
+.sound{position:absolute;right:8px;top:17%;border:0;background:rgba(18,8,34,.82);color:#fff;font:600 14px Barlow,sans-serif;padding:9px 13px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.sound svg{width:16px;height:16px}
+
+h1{font:400 clamp(34px,10vw,72px)/1 Anton,Impact,sans-serif;margin:0;text-transform:uppercase;letter-spacing:.005em;text-align:center}
+h1 span{display:block;font-size:.62em;margin-top:.25em;color:var(--pink)}
+.buy{display:none;align-items:center;gap:16px;margin-top:22px}
+.price{font:400 44px/1 Anton,Impact,sans-serif}
+.price small{display:block;font:600 13px/1.3 Barlow,sans-serif;color:var(--muted);margin-top:4px}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--on-cta);font:400 24px/1 Anton,Impact,sans-serif;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;padding:18px 26px;border-radius:14px;box-shadow:0 5px 0 #c99a00;transition:transform .08s,box-shadow .08s}
+.cta:active{transform:translateY(4px);box-shadow:0 1px 0 #c99a00}
+
+.trust{list-style:none;margin:20px auto 0;padding:0;display:grid;gap:10px;width:fit-content}
+.trust li{display:flex;align-items:center;gap:12px;font-weight:600}
+.trust svg{flex:none;width:28px;height:28px;padding:5px;border-radius:8px;background:var(--surface);border:1px solid var(--line);color:var(--pink)}
+
+section{margin-top:44px}
+h2{font:400 26px/1.1 Anton,Impact,sans-serif;text-transform:uppercase;margin:0 0 16px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-weight:600}
+.steps li::before{content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff;font:400 20px/1 Anton,Impact,sans-serif}
+
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 22px/1 Anton,sans-serif;color:var(--pink)}
+details[open] summary::after{content:"–"}
+details p{margin:8px 0 0;color:var(--muted)}
+
+footer{margin-top:56px;padding:24px 16px 28px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .in{max-width:1040px;margin:0 auto}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0 18px}
+.legal h3{font:700 14px Barlow,sans-serif;color:var(--ink);margin:16px 0 4px}
+.legal p{margin:0;font-size:13px;line-height:1.55}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;align-items:center;gap:14px;z-index:10}
+.sticky .cta{flex:1;padding:16px 18px;font-size:22px}
+.sticky .p{font:400 26px/1 Anton,Impact,sans-serif}
+
+@media (min-width:860px){
+  body{padding-bottom:0}
+  .sticky{display:none}
+  .hero{grid-template-columns:360px 1fr;align-items:center;gap:56px;margin-top:20px}
+  .player{height:640px}
+  h1{text-align:left}
+  .buy{display:flex}
+  .trust{margin-left:0}
+  .lower{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="ticker" role="note"><b>PARODIE</b><span class="live">FLASH INFO</span><span>· WAHOU INFO</span></div>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="player">
+      <video id="demo" src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4" poster="https://dynamic.heygen.ai/aws_pacific/avatar_tmp/db4f235e8625419c8eb6637a30be14c3/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/238e6c96c4e94486b8a62d199aa4225f.jpeg" playsinline muted autoplay loop preload="metadata" aria-label="Exemple de vidéo Flash Info"></video>
+      <button class="sound" id="sound" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path id="wave" d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12" opacity=".35"/></svg>
+        <span>Activer le son</span>
+      </button>
+    </div>
+
+    <div>
+      <h1>Ton mec a disparu dans son jeu ?<span>Fais-le passer aux infos.</span></h1>
+      <div class="buy">
+        <div class="price">6,90 €<small>une vidéo, rien d'autre à payer</small></div>
+        <a class="cta" href="STRIPE_LINK">Je commande</a>
+      </div>
+      <ul class="trust">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Avec son prénom et sa photo</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Reçue en moins de 24 h par mail</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>Refaite gratuitement si erreur</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lower">
+    <section aria-labelledby="how">
+      <h2 id="how">Comment ça marche</h2>
+      <ol class="steps">
+        <li>Tu paies 6,90 €</li>
+        <li>Tu donnes son prénom, une photo et une anecdote</li>
+        <li>Tu reçois sa vidéo Flash Info</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="faq">
+      <h2 id="faq">Questions</h2>
+      <details>
+        <summary>C'est quoi exactement ?</summary>
+        <p>Un faux journal télé d'environ 45 secondes : ton mec (ou ton pote) est porté disparu depuis la sortie de son jeu, avec sa photo, son prénom et un faux témoin.</p>
+      </details>
+      <details>
+        <summary>La photo est supprimée après ?</summary>
+        <p>Oui. Elle sert uniquement à faire ta vidéo et elle est supprimée dès la livraison.</p>
+      </details>
+      <details>
+        <summary>Je peux l'envoyer sur WhatsApp ?</summary>
+        <p>Oui, tu reçois un fichier MP4 vertical : WhatsApp, Snap, Insta, TikTok, partout.</p>
+      </details>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="in">
+    <strong>Wahou Cadeaux</strong> · Enzo DALE EI, Arles
+    <nav aria-label="Liens légaux">
+      <a href="mailto:contact@wahoucadeaux.fr">Contact</a>
+      <a href="#cgv">CGV</a>
+      <a href="#mentions">Mentions légales</a>
+    </nav>
+    <div class="legal">
+      <h3 id="cgv">Conditions de vente</h3>
+      <p>Vidéo personnalisée livrée par mail sous 24 h après réception des informations. En commandant, tu demandes expressément que la vidéo soit réalisée et fournie immédiatement et tu renonces à ton droit de rétractation (art. L221-28 13° du Code de la consommation). En cas d'erreur de notre part (prénom, photo), la vidéo est refaite gratuitement. Vidéo parodique, à usage privé uniquement. Les photos sont supprimées après livraison.</p>
+      <h3 id="mentions">Mentions légales</h3>
+      <p>Wahou Cadeaux est édité par Enzo DALE, entrepreneur individuel, Arles (France), SIRET 939 764 486 00014. Contact : contact@wahoucadeaux.fr. TVA non applicable, art. 293 B du CGI. Ce contenu est une parodie et n'est affilié à aucun éditeur de jeu vidéo ni à aucune chaîne de télévision.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky">
+  <span class="p">6,90 €</span>
+  <a class="cta" href="STRIPE_LINK">Je commande</a>
+</div>
+
+<script>
+(function(){
+  var v=document.getElementById('demo'),b=document.getElementById('sound'),w=document.getElementById('wave'),t=b.querySelector('span');
+  b.addEventListener('click',function(){
+    v.muted=!v.muted;
+    if(!v.muted){try{v.currentTime=0;v.play();}catch(e){}}
+    b.setAttribute('aria-pressed',String(!v.muted));
+    t.textContent=v.muted?'Activer le son':'Couper le son';
+    w.setAttribute('opacity',v.muted?'.35':'1');
+  });
+})();
+</script>
+</body>
+</html>
