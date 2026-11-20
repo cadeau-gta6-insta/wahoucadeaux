@@ -49,6 +49,8 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 h1{font-weight:900;font-size:clamp(34px,9.5vw,58px);line-height:1.02;letter-spacing:-.03em;margin:0}
 h1 em{font-style:normal;color:var(--pink)}
 .sub{margin:12px 0 0;font-size:18px;color:var(--muted);max-width:34ch}
+.for{margin:8px 0 0;font-weight:700;font-size:15px;color:var(--pink)}
+.after{margin:10px 0 0;font-size:14px;font-weight:600;color:var(--ink);text-align:center}
 
 .phone{position:relative;width:min(250px,64vw);margin:0 auto;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000;box-shadow:0 0 0 8px var(--ink),0 24px 50px rgba(23,17,42,.25)}
 .phone video{width:100%;height:100%;object-fit:cover;display:block}
@@ -131,18 +133,21 @@ footer details p{font-size:13px;margin:8px 0 0;line-height:1.55}
     <div class="txt">
       <h1>Fais passer ton mec <em>aux infos.</em></h1>
       <p class="sub">Une vidéo façon JT de 45 secondes, avec son prénom et sa photo : il est porté disparu depuis la sortie de son jeu.</p>
+      <p class="for">Marche aussi pour ton pote, ton frère, ton fils…</p>
     </div>
 
     <div class="buyblock">
       <div class="buy" id="acheter">
-        <div class="price"><b>6,90 €</b><span>une fois, rien d'autre à payer</span></div>
+        <div class="price"><b>6,90 €</b><span>paiement unique, aucun abonnement</span></div>
         <a class="cta" href="https://buy.stripe.com/fZu8wR7VU9bE4Du0CVaZi00?locale=fr">Créer sa vidéo</a>
+        <p class="after">Après le paiement, tu ajoutes sa photo (30 secondes).</p>
         <div class="pay">Paiement sécurisé par Stripe <i>CB</i><i>Visa</i><i>Mastercard</i><i>Apple Pay</i><i>Google Pay</i></div>
       </div>
 
       <ul class="points">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reçue par mail en moins de 24 h</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Une erreur ? On la refait gratuitement</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Son vrai visage, son prénom dit à voix haute : pas un template</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>À envoyer sur WhatsApp, Snap, Insta…</li>
       </ul>
     </div>
@@ -188,7 +193,9 @@ footer details p{font-size:13px;margin:8px 0 0;line-height:1.55}
     <details class="q"><summary>Je reçois quoi exactement ?</summary><p>Un fichier vidéo vertical (MP4) d'environ 45 secondes : une présentatrice annonce sa disparition, son avis de recherche, un faux témoin et l'affiche RECHERCHÉ, avec son prénom, son âge et sa photo.</p></details>
     <details class="q"><summary>Le paiement est sécurisé ?</summary><p>Oui. Le paiement se fait sur la page Stripe, le prestataire utilisé par des millions de sites. Nous ne voyons jamais tes informations de carte.</p></details>
     <details class="q"><summary>Et si je ne reçois rien ?</summary><p>Vérifie tes spams, puis écris-nous sur Instagram @wahoucadeaux avec ton prénom : on te renvoie le lien tout de suite.</p></details>
-    <details class="q"><summary>C'est pour un pote, ça marche aussi ?</summary><p>Bien sûr : pote, frère, coloc, collègue… Tu choisis qui l'envoie au moment de commander.</p></details>
+    <details class="q"><summary>C'est pour un pote, ça marche aussi ?</summary><p>Bien sûr : pote, frère, fils, coloc, collègue… Tu choisis qui l'envoie au moment de commander.</p></details>
+    <details class="q"><summary>Quelle photo envoyer ?</summary><p>Une photo de face où on voit bien son visage et ses épaules. Une photo de profil WhatsApp ou Insta suffit souvent.</p></details>
+    <details class="q"><summary>Comment la vidéo est fabriquée ?</summary><p>La présentatrice et le témoin sont générés par intelligence artificielle, puis on monte sa vidéo avec sa photo et son prénom. La photo sert uniquement à ça et elle est supprimée après la livraison, jamais publiée.</p></details>
   </section>
 </main>
 

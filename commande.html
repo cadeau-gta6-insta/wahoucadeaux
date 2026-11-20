@@ -24,6 +24,7 @@ h1 em{font-style:normal;color:var(--pink)}
 p.lead{margin:0 0 18px;color:var(--muted);font-weight:600}
 .card{border:1px solid var(--line);border-radius:18px;padding:18px 16px 6px;background:var(--bg)}
 iframe{width:100%;border:0;min-height:620px;display:block}
+.loading{margin:0 0 8px;color:var(--muted);font-size:14px;text-align:center}
 .foot{margin-top:24px;color:var(--muted);font-size:14px;text-align:center}
 </style>
 </head>
@@ -32,8 +33,9 @@ iframe{width:100%;border:0;min-height:620px;display:block}
 <main class="wrap">
   <span class="ok">✓ Paiement reçu, merci !</span>
   <h1>Dernière étape : <em>sa photo</em></h1>
-  <p class="lead">30 secondes et c'est parti. Ta vidéo arrive par mail en moins de 24 h.</p>
+  <p class="lead">30 secondes et c'est parti. Une photo de profil WhatsApp ou Insta suffit. Ta vidéo arrive par mail en moins de 24 h.</p>
   <div class="card">
+    <p class="loading" id="ld">Chargement du formulaire…</p>
     <iframe id="tally" title="Envoyer la photo" loading="eager"></iframe>
   </div>
   <p class="foot">Un souci ? Écris-nous sur Instagram <a href="https://www.instagram.com/wahoucadeaux/">@wahoucadeaux</a></p>
@@ -42,6 +44,7 @@ iframe{width:100%;border:0;min-height:620px;display:block}
 (function(){
   var s=new URLSearchParams(location.search).get('session')||'';
   var f=document.getElementById('tally');
+  f.addEventListener('load',function(){var l=document.getElementById('ld');if(l)l.remove();});
   f.src='https://tally.so/embed/ArBrRW?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&session='+encodeURIComponent(s);
   window.addEventListener('message',function(e){
     if(e.origin!=='https://tally.so')return;
