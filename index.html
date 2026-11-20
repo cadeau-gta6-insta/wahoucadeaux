@@ -3,170 +3,209 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Wahou Cadeaux</title>
-<meta name="description" content="Fais passer ton mec aux infos : une vidéo Flash Info parodique avec son prénom et sa photo. 6,90 €, reçue en moins de 24 h.">
+<title>Wahou Cadeaux · Sa vidéo Flash Info personnalisée</title>
+<meta name="description" content="Une vidéo façon JT avec son prénom et sa photo : il est porté disparu depuis la sortie de son jeu. 6,90 €, reçue par mail en moins de 24 h.">
+<meta property="og:title" content="Fais passer ton mec aux infos">
+<meta property="og:description" content="Sa vidéo Flash Info personnalisée, avec son prénom et sa photo. 6,90 €.">
+<meta property="og:image" content="https://dynamic.heygen.ai/aws_pacific/avatar_tmp/db4f235e8625419c8eb6637a30be14c3/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/238e6c96c4e94486b8a62d199aa4225f.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f6f1fb; --surface:#ffffff; --ink:#1a0b2e; --muted:#5b4a73; --line:#e3d8ef;
-  --pink:#e0186f; --violet:#7a2bc4; --cyan:#0aa5c2; --yellow:#ffd23d; --on-cta:#1a0b2e;
-  --grad:linear-gradient(100deg,#ff2e88 0%,#8a2bc4 55%,#22d3ee 100%);
+  --bg:#ffffff; --soft:#f5f3f8; --ink:#17112a; --muted:#5d5670; --line:#e6e1ee;
+  --pink:#e8186f; --pink-soft:#ffe6f0; --green:#127a46; --green-soft:#e3f6ec;
+  --cta:#17112a; --on-cta:#ffffff;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#120822; --surface:#1d0f33; --ink:#fbf7ff; --muted:#b9a7d1; --line:#33204f;
-    --pink:#ff2e88; --violet:#a35cf0; --cyan:#22d3ee; color-scheme:dark;
+    --bg:#120d1f; --soft:#1c1630; --ink:#f6f3fb; --muted:#b4abc6; --line:#2e2645;
+    --pink:#ff4d93; --pink-soft:#3a1630; --green:#5fd69a; --green-soft:#123326;
+    --cta:#ffffff; --on-cta:#17112a; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#120822; --surface:#1d0f33; --ink:#fbf7ff; --muted:#b9a7d1; --line:#33204f;
-  --pink:#ff2e88; --violet:#a35cf0; --cyan:#22d3ee; color-scheme:dark;
+  --bg:#120d1f; --soft:#1c1630; --ink:#f6f3fb; --muted:#b4abc6; --line:#2e2645;
+  --pink:#ff4d93; --pink-soft:#3a1630; --green:#5fd69a; --green-soft:#123326;
+  --cta:#ffffff; --on-cta:#17112a; color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:500 17px/1.5 Barlow,system-ui,sans-serif;padding-bottom:96px}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 17px/1.5 Archivo,system-ui,sans-serif;padding-bottom:92px}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
 
-.ticker{background:var(--grad);color:#fff;font:400 15px/1 Anton,Impact,sans-serif;letter-spacing:.06em;display:flex;align-items:center;gap:12px;padding:9px 16px;white-space:nowrap;overflow:hidden}
-.ticker b{background:#1a0b2e;color:var(--yellow);padding:5px 8px;font-weight:400}
-.live{display:inline-flex;align-items:center;gap:6px}
-.live::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-weight:900;font-size:20px;letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--pink)}
+.secure{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+.secure svg{width:15px;height:15px}
 
-.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 0}
-.hero{display:grid;gap:18px}
-.player{position:relative;height:min(50vh,520px);margin:0 auto;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#1a0b2e;box-shadow:0 0 0 3px #fff,0 0 0 7px var(--pink),0 18px 40px rgba(26,11,46,.35)}
-.player video{width:100%;height:100%;object-fit:cover;display:block}
-.sound{position:absolute;right:8px;top:17%;border:0;background:rgba(18,8,34,.82);color:#fff;font:600 14px Barlow,sans-serif;padding:9px 13px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.hero{display:grid;gap:20px;padding:22px 0 8px;grid-template-areas:"txt" "phone" "buy"}
+.txt{grid-area:txt}.buyblock{grid-area:buy}.phone{grid-area:phone}
+h1{font-weight:900;font-size:clamp(34px,9.5vw,58px);line-height:1.02;letter-spacing:-.03em;margin:0}
+h1 em{font-style:normal;color:var(--pink)}
+.sub{margin:12px 0 0;font-size:18px;color:var(--muted);max-width:34ch}
+
+.phone{position:relative;width:min(250px,64vw);margin:0 auto;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000;box-shadow:0 0 0 8px var(--ink),0 24px 50px rgba(23,17,42,.25)}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+.sound{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);border:0;background:rgba(255,255,255,.95);color:#17112a;font:700 14px Archivo,sans-serif;padding:10px 16px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(0,0,0,.25);white-space:nowrap}
 .sound svg{width:16px;height:16px}
 
-h1{font:400 clamp(34px,10vw,72px)/1 Anton,Impact,sans-serif;margin:0;text-transform:uppercase;letter-spacing:.005em;text-align:center}
-h1 span{display:block;font-size:.62em;margin-top:.25em;color:var(--pink)}
-.buy{display:none;align-items:center;gap:16px;margin-top:22px}
-.price{font:400 44px/1 Anton,Impact,sans-serif}
-.price small{display:block;font:600 13px/1.3 Barlow,sans-serif;color:var(--muted);margin-top:4px}
-.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--on-cta);font:400 24px/1 Anton,Impact,sans-serif;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;padding:18px 26px;border-radius:14px;box-shadow:0 5px 0 #c99a00;transition:transform .08s,box-shadow .08s}
-.cta:active{transform:translateY(4px);box-shadow:0 1px 0 #c99a00}
+.buy{margin-top:4px}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.price b{white-space:nowrap}
+.price b{font-size:40px;font-weight:900;letter-spacing:-.02em}
+.price span{color:var(--muted);font-weight:600}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--cta);color:var(--on-cta);font:800 19px Archivo,sans-serif;text-decoration:none;padding:17px 22px;border-radius:14px;margin-top:12px}
+.cta:hover{filter:brightness(1.1)}
+.pay{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;font-size:13px;color:var(--muted);font-weight:600}
+.pay i{font-style:normal;border:1px solid var(--line);border-radius:6px;padding:3px 7px;font-size:12px;font-weight:700;color:var(--ink);background:var(--bg)}
 
-.trust{list-style:none;margin:20px auto 0;padding:0;display:grid;gap:10px;width:fit-content}
-.trust li{display:flex;align-items:center;gap:12px;font-weight:600}
-.trust svg{flex:none;width:28px;height:28px;padding:5px;border-radius:8px;background:var(--surface);border:1px solid var(--line);color:var(--pink)}
+.points{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.points li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+.points svg{flex:none;width:22px;height:22px;color:var(--green);margin-top:1px}
 
-section{margin-top:44px}
-h2{font:400 26px/1.1 Anton,Impact,sans-serif;text-transform:uppercase;margin:0 0 16px}
+section{padding:40px 0 0}
+h2{font-weight:900;font-size:28px;letter-spacing:-.02em;margin:0 0 6px}
+.lead{color:var(--muted);margin:0 0 18px}
+
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.shot{margin:0}
+.shot video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:14px;background:var(--soft);display:block;pointer-events:none}
+.shot figcaption{font-size:13px;font-weight:700;margin-top:6px;text-align:center}
+
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
-.steps li{counter-increment:s;display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-weight:600}
-.steps li::before{content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff;font:400 20px/1 Anton,Impact,sans-serif}
+.steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start;background:var(--soft);border-radius:14px;padding:16px}
+.steps li::before{content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;display:grid;place-items:center;font-weight:900}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:15px}
 
-details{border-top:1px solid var(--line);padding:14px 0}
-details:last-of-type{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font:400 22px/1 Anton,sans-serif;color:var(--pink)}
-details[open] summary::after{content:"–"}
-details p{margin:8px 0 0;color:var(--muted)}
+.promise{background:var(--green-soft);border-radius:16px;padding:18px;display:grid;gap:10px}
+.promise p{margin:0;font-weight:600}
+.promise strong{color:var(--green)}
 
-footer{margin-top:56px;padding:24px 16px 28px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-footer .in{max-width:1040px;margin:0 auto}
-footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0 18px}
-.legal h3{font:700 14px Barlow,sans-serif;color:var(--ink);margin:16px 0 4px}
-.legal p{margin:0;font-size:13px;line-height:1.55}
+details.q{border-bottom:1px solid var(--line);padding:15px 0}
+details.q:first-of-type{border-top:1px solid var(--line)}
+details.q summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:"+";font-weight:800;color:var(--pink)}
+details.q[open] summary::after{content:"–"}
+details.q p{margin:8px 0 0;color:var(--muted)}
 
-.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;align-items:center;gap:14px;z-index:10}
-.sticky .cta{flex:1;padding:16px 18px;font-size:22px}
-.sticky .p{font:400 26px/1 Anton,Impact,sans-serif}
+footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 26px;font-size:14px;color:var(--muted)}
+footer .row{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+footer details{margin-top:12px}
+footer summary{cursor:pointer;font-weight:600}
+footer details p{font-size:13px;margin:8px 0 0;line-height:1.55}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--bg);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center}
+.sticky .p{font-weight:900;font-size:22px;white-space:nowrap}
+.sticky .cta{margin:0;padding:14px 18px;font-size:17px}
 
 @media (min-width:860px){
   body{padding-bottom:0}
   .sticky{display:none}
-  .hero{grid-template-columns:360px 1fr;align-items:center;gap:56px;margin-top:20px}
-  .player{height:640px}
-  h1{text-align:left}
-  .buy{display:flex}
-  .trust{margin-left:0}
-  .lower{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .hero{grid-template-columns:1fr 330px;grid-template-areas:"txt phone" "buy phone";align-items:start;column-gap:56px;row-gap:8px;padding:48px 0 16px}
+  .txt{align-self:end}
+  .phone{width:320px}
+  .cta{width:auto}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="ticker" role="note"><b>PARODIE</b><span class="live">FLASH INFO</span><span>· WAHOU INFO</span></div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="/">Wahou<span>.</span> Cadeaux</a>
+    <span class="secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Paiement sécurisé</span>
+  </div>
+</header>
 
 <main class="wrap">
   <div class="hero">
-    <div class="player">
-      <video id="demo" src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4" poster="https://dynamic.heygen.ai/aws_pacific/avatar_tmp/db4f235e8625419c8eb6637a30be14c3/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/238e6c96c4e94486b8a62d199aa4225f.jpeg" playsinline muted autoplay loop preload="metadata" aria-label="Exemple de vidéo Flash Info"></video>
-      <button class="sound" id="sound" type="button" aria-pressed="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path id="wave" d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12" opacity=".35"/></svg>
-        <span>Activer le son</span>
-      </button>
+    <div class="txt">
+      <h1>Fais passer ton mec <em>aux infos.</em></h1>
+      <p class="sub">Une vidéo façon JT de 45 secondes, avec son prénom et sa photo : il est porté disparu depuis la sortie de son jeu.</p>
     </div>
 
-    <div>
-      <h1>Ton mec a disparu dans son jeu ?<span>Fais-le passer aux infos.</span></h1>
-      <div class="buy">
-        <div class="price">6,90 €<small>une vidéo, rien d'autre à payer</small></div>
-        <a class="cta" href="https://buy.stripe.com/fZu8wR7VU9bE4Du0CVaZi00?locale=fr">Je commande</a>
+    <div class="buyblock">
+      <div class="buy" id="acheter">
+        <div class="price"><b>6,90 €</b><span>une fois, rien d'autre à payer</span></div>
+        <a class="cta" href="https://buy.stripe.com/fZu8wR7VU9bE4Du0CVaZi00?locale=fr">Créer sa vidéo</a>
+        <div class="pay">Paiement sécurisé par Stripe <i>CB</i><i>Visa</i><i>Mastercard</i><i>Apple Pay</i><i>Google Pay</i></div>
       </div>
-      <ul class="trust">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Avec son prénom et sa photo</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Reçue en moins de 24 h par mail</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>Refaite gratuitement si erreur</li>
+
+      <ul class="points">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reçue par mail en moins de 24 h</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Une erreur ? On la refait gratuitement</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>À envoyer sur WhatsApp, Snap, Insta…</li>
       </ul>
+    </div>
+
+    <div class="phone">
+      <video id="demo" src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4" poster="https://dynamic.heygen.ai/aws_pacific/avatar_tmp/db4f235e8625419c8eb6637a30be14c3/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/238e6c96c4e94486b8a62d199aa4225f.jpeg" playsinline muted autoplay loop preload="metadata" aria-label="Exemple : la vidéo Flash Info d'Enzo"></video>
+      <button class="sound" id="sound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><span>Écouter l'exemple</span></button>
     </div>
   </div>
 
-  <div class="lower">
-    <section aria-labelledby="how">
-      <h2 id="how">Comment ça marche</h2>
+  <section aria-labelledby="dedans">
+    <h2 id="dedans">Ce qu'il y a dans sa vidéo</h2>
+    <p class="lead">Exemple réel, fait pour Enzo.</p>
+    <div class="shots">
+      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=14" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>Son avis de recherche</figcaption></figure>
+      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=32" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>Le faux témoin</figcaption></figure>
+      <figure class="shot"><video src="https://resource2.heygen.ai/video/transcode/238e6c96c4e94486b8a62d199aa4225f/vY0RidQE7pNM8kgRktpMgpmKlMSX9p6Kr/720x1280_nocap.mp4#t=44" muted playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video><figcaption>L'affiche RECHERCHÉ</figcaption></figure>
+    </div>
+  </section>
+
+  <div class="two">
+    <section aria-labelledby="comment">
+      <h2 id="comment">Comment ça marche</h2>
       <ol class="steps">
-        <li>Tu paies 6,90 €</li>
-        <li>Tu donnes son prénom, une photo et une anecdote</li>
-        <li>Tu reçois sa vidéo Flash Info</li>
+        <li><div><b>Tu paies 6,90 €</b><span>Tu indiques son prénom et son âge.</span></div></li>
+        <li><div><b>Tu envoies sa photo</b><span>Et une anecdote si tu veux (« il a raté le repas de famille »).</span></div></li>
+        <li><div><b>Tu reçois sa vidéo par mail</b><span>En moins de 24 h. Tu n'as plus qu'à lui envoyer.</span></div></li>
       </ol>
     </section>
 
-    <section aria-labelledby="faq">
-      <h2 id="faq">Questions</h2>
-      <details>
-        <summary>C'est quoi exactement ?</summary>
-        <p>Un faux journal télé d'environ 45 secondes : ton mec (ou ton pote) est porté disparu depuis la sortie de son jeu, avec sa photo, son prénom et un faux témoin.</p>
-      </details>
-      <details>
-        <summary>La photo est supprimée après ?</summary>
-        <p>Oui. Elle sert uniquement à faire ta vidéo et elle est supprimée dès la livraison.</p>
-      </details>
-      <details>
-        <summary>Je peux l'envoyer sur WhatsApp ?</summary>
-        <p>Oui, tu reçois un fichier MP4 vertical : WhatsApp, Snap, Insta, TikTok, partout.</p>
-      </details>
+    <section aria-labelledby="engage">
+      <h2 id="engage">Notre promesse</h2>
+      <div class="promise">
+        <p><strong>Prénom mal écrit ou photo mal placée ?</strong> On refait la vidéo gratuitement.</p>
+        <p><strong>Sa photo est supprimée</strong> dès que la vidéo est livrée.</p>
+        <p><strong>Une question ?</strong> Écris-nous sur Instagram <a href="https://www.instagram.com/wahoucadeaux/">@wahoucadeaux</a>, on répond vite.</p>
+      </div>
     </section>
   </div>
+
+  <section aria-labelledby="faq">
+    <h2 id="faq">Questions</h2>
+    <details class="q"><summary>Je reçois quoi exactement ?</summary><p>Un fichier vidéo vertical (MP4) d'environ 45 secondes : une présentatrice annonce sa disparition, son avis de recherche, un faux témoin et l'affiche RECHERCHÉ, avec son prénom, son âge et sa photo.</p></details>
+    <details class="q"><summary>Le paiement est sécurisé ?</summary><p>Oui. Le paiement se fait sur la page Stripe, le prestataire utilisé par des millions de sites. Nous ne voyons jamais tes informations de carte.</p></details>
+    <details class="q"><summary>Et si je ne reçois rien ?</summary><p>Vérifie tes spams, puis écris-nous sur Instagram @wahoucadeaux avec ton prénom : on te renvoie le lien tout de suite.</p></details>
+    <details class="q"><summary>C'est pour un pote, ça marche aussi ?</summary><p>Bien sûr : pote, frère, coloc, collègue… Tu choisis qui l'envoie au moment de commander.</p></details>
+  </section>
 </main>
 
 <footer>
-  <div class="in">
-    <strong>Wahou Cadeaux</strong>
-    <nav aria-label="Liens légaux">
-      <a href="mailto:contact@wahoucadeaux.fr">Contact</a>
-      <a href="#cgv">CGV et mentions légales</a>
-    </nav>
-    <details class="legal" id="legal">
+  <div class="wrap">
+    <div class="row"><strong>Wahou Cadeaux</strong><a href="https://www.instagram.com/wahoucadeaux/">Instagram</a><a href="#cgv">CGV et mentions légales</a></div>
+    <details id="legal">
       <summary>CGV et mentions légales</summary>
-      <h3 id="cgv">Conditions de vente</h3>
-      <p>Vidéo personnalisée livrée par mail sous 24 h après réception des informations. En commandant, tu demandes expressément que la vidéo soit réalisée et fournie immédiatement et tu renonces à ton droit de rétractation (art. L221-28 13° du Code de la consommation). En cas d'erreur de notre part (prénom, photo), la vidéo est refaite gratuitement. Vidéo parodique, à usage privé uniquement. Les photos sont supprimées après livraison.</p>
-      <h3 id="mentions">Mentions légales</h3>
-      <p>Wahou Cadeaux est édité par Enzo DALE, entrepreneur individuel, Arles (France), SIRET 939 764 486 00014. Contact : contact@wahoucadeaux.fr. TVA non applicable, art. 293 B du CGI. Ce contenu est une parodie et n'est affilié à aucun éditeur de jeu vidéo ni à aucune chaîne de télévision. Hébergement : GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+      <p id="cgv"><b>Conditions de vente.</b> Vidéo personnalisée livrée par mail sous 24 h après réception des informations. En commandant, tu demandes expressément que la vidéo soit réalisée et fournie immédiatement et tu renonces à ton droit de rétractation (art. L221-28 13° du Code de la consommation). En cas d'erreur de notre part (prénom, photo), la vidéo est refaite gratuitement. Vidéo humoristique (parodie), à usage privé uniquement. Les photos sont supprimées après livraison.</p>
+      <p id="mentions"><b>Mentions légales.</b> Wahou Cadeaux est édité par Enzo DALE, entrepreneur individuel, Arles (France), SIRET 939 764 486 00014. Contact : Instagram @wahoucadeaux. TVA non applicable, art. 293 B du CGI. Contenu parodique, non affilié à un éditeur de jeu vidéo ni à une chaîne de télévision. Hébergement : GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
     </details>
   </div>
 </footer>
 
 <div class="sticky">
   <span class="p">6,90 €</span>
-  <a class="cta" href="https://buy.stripe.com/fZu8wR7VU9bE4Du0CVaZi00?locale=fr">Je commande</a>
+  <a class="cta" href="https://buy.stripe.com/fZu8wR7VU9bE4Du0CVaZi00?locale=fr">Créer sa vidéo</a>
 </div>
 
 <script>
@@ -174,15 +213,12 @@ footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0 18px}
   var lg=document.getElementById('legal');
   function openLegal(){if(/^#(cgv|mentions)$/.test(location.hash)){lg.open=true;var el=document.querySelector(location.hash);if(el)el.scrollIntoView();}}
   window.addEventListener('hashchange',openLegal);openLegal();
-})();
-(function(){
-  var v=document.getElementById('demo'),b=document.getElementById('sound'),w=document.getElementById('wave'),t=b.querySelector('span');
+  var v=document.getElementById('demo'),b=document.getElementById('sound'),t=b.querySelector('span');
   b.addEventListener('click',function(){
     v.muted=!v.muted;
     if(!v.muted){try{v.currentTime=0;v.play();}catch(e){}}
     b.setAttribute('aria-pressed',String(!v.muted));
-    t.textContent=v.muted?'Activer le son':'Couper le son';
-    w.setAttribute('opacity',v.muted?'.35':'1');
+    t.textContent=v.muted?"Écouter l'exemple":'Couper le son';
   });
 })();
 </script>
